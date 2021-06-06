@@ -1,3 +1,6 @@
+# Deployed Solution
+To view a live version of my solutions, please visit a deployed version [here](https://n8n-fe-task.vercel.app/)
+
 # FE-screening
 
 First of all, thanks for taking the time working on this task.
@@ -48,9 +51,19 @@ These are the 3 obvious methods I can thing of, of which the background image (1
 ### Additional comments
 1. An img tag would be better than CSS if: the image is part of the content, the image needs to be indexed by search engines, the image has semantical meaning or images need to be optimized (nuxt-img)
 
+
 # 4. Introducing state to our Application:
 
 We now want to add interaction to our table on our Index page ([localhost:3000/](http://localhost:3000/)). Please complete the feature that we can add and remove persons from the table. Ideally we want to do this using the Vuex Store to manage the state.
+
+### Problem
+Add feature, ideally using state
+
+### Solution
+I implemented the solution using Vuex store, and also using [local state](localhost:3000/index-non-store)
+
+### Additional Comments
+This is my first time ever working with Vue, so I apologize in advance if I did not follow best practices to the T.
 
 # Build Setup
 

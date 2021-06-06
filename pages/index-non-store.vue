@@ -8,7 +8,7 @@
           <th>Action</th>
         </tr>
         <tr
-          v-for="(person, index) in allPersons"
+          v-for="(person, index) in persons"
           :key="person.firstName + person.lastName + index"
         >
           <td>{{ person.firstName }}</td>
@@ -26,33 +26,38 @@
 </template>
 
 <script lang="ts">
-import { mapGetters, mapMutations } from "vuex";
+// import { Component, Vue } from "nuxt-property-decorator";
 import { Person } from "@/types/state";
 
 export default {
   data() {
     return {
+      persons: [
+        { firstName: "Jill", lastName: "Smith" },
+        { firstName: "Eve", lastName: "Jackson" },
+      ],
       firstNameValue: "",
       lastNameValue: "",
     };
   },
-  computed: mapGetters(["allPersons"]),
   methods: {
-    ...mapMutations(["addPerson", "removePerson"]),
     add() {
       if (this.firstNameValue === "" || this.lastNameValue === "") {
         return alert("Please ensure you've entered both a first and last name");
       }
 
-      const newPerson = {
+      this.persons.push({
         firstName: this.firstNameValue,
         lastName: this.lastNameValue,
-      };
-
-      this.addPerson(newPerson);
+      });
     },
     remove(person: Person) {
-      this.removePerson(person);
+      const newPersons = this.persons.filter(
+        (item) =>
+          item.firstName !== person.firstName &&
+          item.lastName !== person.lastName
+      ); // Would use unique id here in production
+      this.persons = newPersons;
     },
   },
 };

@@ -1,11 +1,29 @@
-import { ActionContext, ActionTree } from "vuex";
-import { RootState } from "~/types/state";
+import { GetterTree, ActionTree, MutationTree } from 'vuex'
+import { Person, PersonsState } from "../types/state";
 
-export const actions: ActionTree<RootState, RootState> = {
-  async nuxtServerInit({
-    commit,
-    dispatch
-  }: ActionContext<RootState, RootState>) {},
+export const state: () => PersonsState = () => ({
+  persons: [
+    { firstName: "Jill", lastName: "Smith" },
+    { firstName: "Eve", lastName: "Jackson" },
+  ],
+});
 
-  async nuxtClientInit() {}
+export type RootState = ReturnType<typeof state>
+
+export const getters: GetterTree<PersonsState, RootState> = {
+  allPersons: (state: PersonsState): Person[] => state.persons
 };
+
+export const mutations: MutationTree<RootState> = {
+  addPerson(state: PersonsState, payload: Person) {
+    state.persons.push(payload)
+  },
+  removePerson(state: PersonsState, payload: Person) {
+    const newPersons = state.persons.filter(
+      (item) =>
+        item.firstName !== payload.firstName &&
+        item.lastName !== payload.lastName
+    ); // Would use unique id here in production
+    state.persons = newPersons;
+  }
+}

@@ -1,25 +1,22 @@
 <template>
   <div class="page-wrap">
-
-    <h1>Make This Responsive</h1>
-
-    <p>While maintaining the hierarchy of importance.</p>
-
     <article class="main-story">
-
-      <img src="https://f.cl.ly/items/2e3c2a1Z0D1H3u0W2K12/shera.jpg" alt="Sha Ra Rocking"/>
+      <img src="/responsive-main.jpg" alt="Sha Ra Rocking" />
 
       <div class="story-intro">
         <h1>Most Important Story</h1>
-        <p>This article has the most visual weight. <a href="http://nebezial.deviantart.com/art/she-ra-115867096">image source.</a></p>
+        <p>
+          This article has the most visual weight.
+          <a href="https://www.deviantart.com/nebezial/art/she-ra-115867096"
+            >image source.</a
+          >
+        </p>
       </div>
-
     </article>
 
     <section class="sub-stories">
-
       <article class="sub-story">
-        <img src="http://placekitten.com/250/350"/>
+        <img src="https://placekitten.com/250/350" />
         <div class="story-intro">
           <h2>Less Important Story</h2>
           <p>This story has less visual weight.</p>
@@ -27,7 +24,7 @@
       </article>
 
       <article class="sub-story">
-        <img src="http://placecage.com/250/350"/>
+        <img src="https://www.placecage.com/c/250/350" />
         <div class="story-intro">
           <h2>Less Important Story</h2>
           <p>This story has less visual weight.</p>
@@ -35,22 +32,20 @@
       </article>
 
       <article class="sub-story last">
-        <img src="http://placebear.com/250/350"/>
+        <img src="https://placebear.com/250/350" />
         <div class="story-intro">
           <h2>Less Important Story</h2>
           <p>This story has less visual weight.</p>
         </div>
       </article>
-
     </section>
-
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 
-export default Vue.extend({})
+export default Vue.extend({});
 </script>
 
 <style scoped>
@@ -59,13 +54,24 @@ export default Vue.extend({})
 }
 
 .page-wrap {
-  width: 800px;
-  margin: 20px auto;
+  padding: 1rem;
+  overflow: hidden;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .main-story {
   position: relative;
   margin: 0 0 25px 0;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.main-story img {
+  height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 img {
@@ -87,9 +93,10 @@ a {
 }
 
 h1 {
-   font-size: 4em;
+  font-size: 4em;
 }
-h1, h2 {
+h1,
+h2 {
   margin: 0 0 10px 0;
 }
 
@@ -103,17 +110,34 @@ h1, h2 {
 .sub-stories {
   overflow: hidden;
   margin: 0 0 25px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .sub-story {
-  float: left;
-  width: 250px;
-  margin-right: 25px;
-  position: relative;
+  width: 100%;
   font-size: 80%;
+  position: relative;
+}
+
+.sub-story img {
+  width: 100%;
 }
 
 .last {
   margin-right: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .sub-stories {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sub-stories {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>

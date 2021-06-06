@@ -24,6 +24,17 @@ Change box-sizing property value to box-sizing to take the padding into account.
 
 Please make our page ([fix-responsive](http://localhost:3000/fix-responsive)) responsive while maintaining the hierachy of importance. Do your best at making it fit the screen more appropriately at any screen size.
 
+### Problem
+Page is not responsive
+
+### Solution
+Add the appropriate media queries to make the page responsive (implementing a mobile-first approach).
+
+### Additional Comments
+1. I prefer using CSS Grid when the amount of grid items are known and vice versa for Flexbox.
+2. My antivirus wasn't playing along with the insecure images links so I adjusted them
+
+
 # 3. Replace the markup with an image:
 
 Please change the markup on the [replace-image](http://localhost:3000/replace-image) page to an image by just using CSS. We would appreciate if you could demonstrate us multiple ways of how one can achieve this.

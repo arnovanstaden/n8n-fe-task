@@ -26,10 +26,11 @@
 </template>
 
 <script lang="ts">
+import { Vue } from "nuxt-property-decorator";
 import { mapGetters, mapMutations } from "vuex";
 import { Person } from "@/types/state";
 
-export default {
+export default Vue.extend({
   data() {
     return {
       firstNameValue: "",
@@ -50,12 +51,15 @@ export default {
       };
 
       this.addPerson(newPerson);
+
+      this.firstNameValue = "";
+      this.lastNameValue = "";
     },
     remove(person: Person) {
       this.removePerson(person);
     },
   },
-};
+});
 </script>
 
 <style scoped>

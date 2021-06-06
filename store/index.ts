@@ -16,7 +16,8 @@ export const getters: GetterTree<PersonsState, RootState> = {
 
 export const mutations: MutationTree<RootState> = {
   addPerson(state: PersonsState, payload: Person) {
-    state.persons.push(payload)
+    const newState = [...state.persons, payload]
+    state.persons = newState;
   },
   removePerson(state: PersonsState, payload: Person) {
     const newPersons = state.persons.filter(

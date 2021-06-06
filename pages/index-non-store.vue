@@ -26,10 +26,10 @@
 </template>
 
 <script lang="ts">
-// import { Component, Vue } from "nuxt-property-decorator";
+import { Vue } from "nuxt-property-decorator";
 import { Person } from "@/types/state";
 
-export default {
+export default Vue.extend({
   data() {
     return {
       persons: [
@@ -41,17 +41,22 @@ export default {
     };
   },
   methods: {
-    add() {
+    add(): void {
       if (this.firstNameValue === "" || this.lastNameValue === "") {
         return alert("Please ensure you've entered both a first and last name");
       }
 
-      this.persons.push({
+      const newPerson = {
         firstName: this.firstNameValue,
         lastName: this.lastNameValue,
-      });
+      };
+      const newState = [...this.persons, newPerson];
+      this.persons = newState;
+
+      this.firstNameValue = "";
+      this.lastNameValue = "";
     },
-    remove(person: Person) {
+    remove(person: Person): void {
       const newPersons = this.persons.filter(
         (item) =>
           item.firstName !== person.firstName &&
@@ -60,7 +65,7 @@ export default {
       this.persons = newPersons;
     },
   },
-};
+});
 </script>
 
 <style scoped>

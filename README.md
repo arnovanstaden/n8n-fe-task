@@ -39,6 +39,15 @@ Add the appropriate media queries to make the page responsive (implementing a mo
 
 Please change the markup on the [replace-image](http://localhost:3000/replace-image) page to an image by just using CSS. We would appreciate if you could demonstrate us multiple ways of how one can achieve this.
 
+### Problem
+Place image using only CSS
+
+### Solution
+These are the 3 obvious methods I can thing of, of which the background image (1) is recommended and would be best supported.
+
+### Additional comments
+1. An img tag would be better than CSS if: the image is part of the content, the image needs to be indexed by search engines, the image has semantical meaning or images need to be optimized (nuxt-img)
+
 # 4. Introducing state to our Application:
 
 We now want to add interaction to our table on our Index page ([localhost:3000/](http://localhost:3000/)). Please complete the feature that we can add and remove persons from the table. Ideally we want to do this using the Vuex Store to manage the state.

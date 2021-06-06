@@ -8,6 +8,18 @@ We have multiple problems in our Frontend Application that need to be fixed. Fee
 
 Please fix our layout at [fix-layout](http://localhost:3000/fix-layout) page. The red module box should be placed right beside the two title boxes, somehow it slipped down for us. Maybe you can even explain to us why this did happen?
 
+## My Notes
+
+### Diagnosis
+Incorrect use of Box Model. The section with articles had a width of 75% and the aside had 25%, which = 100% and is fine, but the added 1rem of padding on the section wasn't taken into account in the 75% width and thus the total for the two elements was > 100%, hence it couldn't fit into the same row. 
+
+### Problem
+Incorrect box sizing property (set to default content-xox)
+
+### Solution
+Change box-sizing property value to box-sizing to take the padding into account.
+
+
 # 2. Make our page responsive:
 
 Please make our page ([fix-responsive](http://localhost:3000/fix-responsive)) responsive while maintaining the hierachy of importance. Do your best at making it fit the screen more appropriately at any screen size.

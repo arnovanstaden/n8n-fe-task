@@ -39,6 +39,7 @@ section {
   background: lightgreen;
   width: 75%;
   float: left;
+  box-sizing: border-box
 }
 article {
   background: white;

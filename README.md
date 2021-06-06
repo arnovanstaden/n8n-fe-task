@@ -60,7 +60,7 @@ We now want to add interaction to our table on our Index page ([localhost:3000/]
 Add feature, ideally using state
 
 ### Solution
-I implemented the solution using Vuex store, and also using [local state](localhost:3000/index-non-store)
+I implemented the solution using Vuex store, and also using [local state](http://localhost:3000/index-non-store)
 
 ### Additional Comments
 This is my first time ever working with Vue, so I apologize in advance if I did not follow best practices to the T.
